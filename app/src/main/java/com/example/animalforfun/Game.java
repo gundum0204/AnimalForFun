@@ -29,6 +29,7 @@ public class Game extends AppCompatActivity {
     String answer;
     MediaPlayer mediaPlayer;
     int score = 0;
+    String getNameString;
 
 
 
@@ -242,9 +243,12 @@ public class Game extends AppCompatActivity {
     }//end choiceAns() method
 
     private void dialogboxScore() {
+        //รับค่า Intent เพื่อมาแสดงผล
+        getNameString = getIntent().getStringExtra("Name");
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Summary Score!");
-        builder.setMessage("คุณได้" + score + " คะแนน")
+        builder.setMessage(getNameString + " ได้ " + score + " คะแนน")
                 .setCancelable(false)
                 .setPositiveButton("Play Again", new DialogInterface.OnClickListener() {
                     @Override

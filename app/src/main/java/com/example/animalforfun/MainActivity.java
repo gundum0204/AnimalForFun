@@ -2,6 +2,7 @@ package com.example.animalforfun;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "ใส่ข้อมูลหน่อยเว้ยยยยยยยยยยยยยย.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(),"ยินดีต้อนรับคุณ "+nameString+"เข้าสู่เกม",Toast.LENGTH_SHORT).show();
-
+                    //Intent การเชื่อไปหน้าอื่น
+                    Intent startIntent = new Intent(MainActivity.this, Game.class);
+                    startIntent.putExtra("Name", nameString);
+                    startActivity(startIntent);
                 }
             }
         });
